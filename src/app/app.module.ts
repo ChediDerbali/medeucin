@@ -1,3 +1,6 @@
+import { ConsultationComponent } from './consultation/consultation.component';
+import { PatientComponent } from './patient/patient.component';
+import { MedecinComponent } from './medecin/medecin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +41,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    MedecinComponent,
+    PatientComponent,
+    ConsultationComponent
 
   ],
   providers: [],

@@ -1,3 +1,4 @@
+import { MedecinComponent } from './medecin/medecin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,7 +9,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'user-profile',
     pathMatch: 'full',
   }, {
     path: '',
@@ -20,7 +21,7 @@ const routes: Routes = [
       }]
   }
   // { path: 'dashboard',      component: DashboardComponent },
-  // { path: 'user-profile',   component: UserProfileComponent },
+
   // { path: 'table-list',     component: TableListComponent },
   // { path: 'typography',     component: TypographyComponent },
   // { path: 'icons',          component: IconsComponent },
