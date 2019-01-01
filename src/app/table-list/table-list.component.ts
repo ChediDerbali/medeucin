@@ -1,3 +1,4 @@
+import { PatientService } from './../services/patient.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableListComponent implements OnInit {
 
-  constructor() { }
+  table = [];
+
+
+  constructor(public patientService: PatientService) {
+    this.table = patientService.getPatient();
+    console.log(this.table);
+  }
 
   ngOnInit() {
   }

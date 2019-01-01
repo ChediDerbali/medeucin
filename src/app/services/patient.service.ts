@@ -14,7 +14,7 @@ export class PatientService {
   patient = { id: null, nom: '', prenom: '', datenaissance: null, tel: null, email: '', CNAM: null };
 
   getPatient() {
-    return PatientService;
+    return this.patients;
   }
   addPatient(p) {
     this.patient.id = p.id;

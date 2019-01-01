@@ -38,27 +38,27 @@
                   </th>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let p of table">
                     <td>
-                      1
+                      {{p.id}}
                     </td>
                     <td>
-                      Dakota Rice
+                        {{p.nom}}
                     </td>
                     <td>
-                      Niger
+                        {{p.prenom}}
                     </td>
                     <td>
-                      Oud-Turnhout
+                        {{p.datenaissance|date:"d/MM/yyyy"}}
                     </td>
                     <td>
-                      Oud-Turnhout
+                        {{p.tel}}
                     </td>
                     <td>
-                      Oud-Turnhout
+                        {{p.email}}
                     </td>
                     <td class="text-primary">
-                      sqdqsd
+                        {{p.CNAM}}
                     </td>
                     <td class="td-actions">
                         <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-success btn-link btn-sm btn-just-icon">
@@ -67,91 +67,6 @@
                         <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
                             <i class="material-icons">delete</i>
                         </button>
-                  </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td class="text-primary">
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td class="text-primary">
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      4
-                    </td>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td class="text-primary">
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      5
-                    </td>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td class="text-primary">
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      6
-                    </td>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td>
-
-                    </td>
                   </tr>
                 </tbody>
               </table>
