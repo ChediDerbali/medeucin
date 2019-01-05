@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class PatientService {
   getPatient() {
     return this.patients;
   }
+  /** */
   addPatient(p) {
     this.patient.id = p.id;
     this.patient.nom = p.nom;
@@ -28,5 +30,18 @@ export class PatientService {
 
 
   }
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
+  getPatientById(id: string) {
+    return this.http.get('')
+  }
+  deletePatientById(id) {
+    for (let i = 0; i < this.patients.length; ++i) {
+      if (this.patients[i].id === id) {
+        this.patients.splice(i, 1);
+
+      }
+    }
+  }
 }
