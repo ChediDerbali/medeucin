@@ -1,3 +1,4 @@
+import { Medecin } from './../models/medecin';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MedecinService {
   Agenda = [];
-  profilMedecin = {};
+  profilMedecin: Medecin;
   recl = { date: null, message: '' };
 
 
