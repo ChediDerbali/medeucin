@@ -1,139 +1,61 @@
 <div class="main-content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header card-header-danger"  style="position: relative;">
-              <h4 class="card-title ">Consultations</h4>
-              <button  matTooltip="ajouter consultation" [matTooltipPosition]="'above'" style="position: absolute; top: 10px; right: 10px;bottom: 10px;"><i class="material-icons" >note_add</i></button>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
-                    <th>
-                      ID
-                    </th>
-                    <th>
-                        Date
-                    </th>
-                    <th>
-                        Patient ID
-                    </th>
-                    <th>
-                      Notes
-                    </th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        1
-                      </td>
-                      <td>
-                        Dakota Rice
-                      </td>
-                      <td>
-                        Niger
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                    
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger" style="position: relative;">
+            <h4 class="card-title ">Consultations</h4>
+            <button matTooltip="ajouter consultation" [matTooltipPosition]="'above'" style="position: absolute; top: 10px; right: 10px;bottom: 10px;"><i
+                class="material-icons">note_add</i></button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Patient ID
+                  </th>
+                  <th>
+                    Notes
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of consTable">
+                    <td>
+                      {{p.id}}
+                    </td>
+                    <td>
+                      {{p.date}}
+                    </td>
+                    <td>
+                      {{p.patientID}}
+                    </td>
+                    <td>
+                      {{p.notes}}
+                    </td>
+                    <td class="td-actions">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'"
+                        class="btn btn-success btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">delete</i>
+                      </button>
+                  </tr>
 
-                      <td class="td-actions">
-                          <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-success btn-link btn-sm btn-just-icon">
-                              <i class="material-icons">edit</i>
-                          </button>
-                          <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                              <i class="material-icons">delete</i>
-                          </button>
-                    </tr>
-                    <tr>
-                      <td>
-                        2
-                      </td>
-                      <td>
-                        Minerva Hooper
-                      </td>
-                      <td>
-                        Curaçao
-                      </td>
-                      <td>
-                        Sinaai-Waas
-                      </td>
-                      
-                    </tr>
-                    <tr>
-                      <td>
-                        3
-                      </td>
-                      <td>
-                        Sage Rodriguez
-                      </td>
-                      <td>
-                        Netherlands
-                      </td>
-                      <td>
-                        Baileux
-                      </td>
-                  
-                    </tr>
-                    <tr>
-                      <td>
-                        4
-                      </td>
-                      <td>
-                        Philip Chaney
-                      </td>
-                      <td>
-                        Korea, South
-                      </td>
-                      <td>
-                        Overland Park
-                      </td>
-                    
-                    </tr>
-                    <tr>
-                      <td>
-                        5
-                      </td>
-                      <td>
-                        Doris Greene
-                      </td>
-                      <td>
-                        Malawi
-                      </td>
-                      <td>
-                        Feldkirchen in Kärnten
-                      </td>
-                  
-                    </tr>
-                    <tr>
-                      <td>
-                        6
-                      </td>
-                      <td>
-                        Mason Porter
-                      </td>
-                      <td>
-                        Chile
-                      </td>
-                      <td>
-                        Gloucester
-                      </td>
-                      <td>
-  
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-  
       </div>
+
     </div>
   </div>
- 
-    
+</div>
