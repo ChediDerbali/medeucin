@@ -1,64 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-danger">
-            <h4 class="card-title">Modifier Profile</h4>
-            <p class="card-category">Completer votre profile</p>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="profilMod.prenom" placeholder="Prenom" name="prenom" type="text">
-                  </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="profilMod.nom" placeholder="Nom" name="nom" type="text">
-                  </mat-form-field>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="profilMod.datenaissance" placeholder="date de naissance" name="datenaissance" type="date">
-                  </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="profilMod.email" placeholder="e-mail" name="email" type="text">
-                  </mat-form-field>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="profilMod.publicCode" placeholder="Public Code" name="pubcode" type="text">
-                  </mat-form-field>
-                </div>
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="profilMod.type" placeholder="type" name="type" type="text">
-                    <!--GEN/SPE-->
-                  </mat-form-field>
-                </div>
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input [(ngModel)]="profilMod.specialite" matInput placeholder="specialité" name="specialité" type="text">
-                  </mat-form-field>
-                </div>
-              </div>
-
-              <button mat-raised-button type="submit" class="btn btn-danger pull-right">appliquer</button>
-              <div class="clearfix"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
+      <div class="col-md-12">
         <div class="card card-profile">
           <div class="card-avatar">
             <a href="#pablo">
@@ -77,9 +20,84 @@
                 <li>{{profilMedecin.specialite}}</li>
               </ul>
             </div>
+            <button class="btn btn-danger center-block" (click)="open(content)">Editer profile</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Modifier Profile</h4>
+          <p class="card-category">Completer votre profile</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="profilMod.prenom" placeholder="Prenom" name="prenom" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="profilMod.nom" placeholder="Nom" name="nom" type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="profilMod.datenaissance" placeholder="date de naissance" name="datenaissance"
+                    type="date">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="profilMod.email" placeholder="e-mail" name="email" type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="profilMod.publicCode" placeholder="Public Code" name="pubcode" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="profilMod.type" placeholder="type" name="type" type="text">
+                  <!--GEN/SPE-->
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="profilMod.specialite" matInput placeholder="specialité" name="specialité" type="text">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <button mat-raised-button (click)="validate()" type="submit" class="btn btn-danger pull-right">appliquer</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+
+
+<hr>
+
+<pre>{{closeResult}}</pre>
