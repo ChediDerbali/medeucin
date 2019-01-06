@@ -1,5 +1,6 @@
 import { MedecinService } from './../services/medecin.service';
-import {  OnInit, Component } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
+import { Medecin } from '../models/medecin';
 
 
 @Component({
@@ -10,12 +11,12 @@ import {  OnInit, Component } from '@angular/core';
 
 export class MedecinComponent implements OnInit {
 
-  profilMedecin: any;
-  Agenda = [];
+  profilMedecin: Medecin;
+  profilMod = new Medecin();
   message = '';
   constructor(public medecinService: MedecinService) {
+
     this.profilMedecin = medecinService.getInfo();
-    this.Agenda = medecinService.getAgenda();
 
   }
 
