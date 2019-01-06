@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConsultationService } from 'app/services/consultation.service';
 
 @Component({
   selector: 'app-consultation',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultationComponent implements OnInit {
 
-  constructor() { }
+  consTable = [];
+  constructor(public consultationService: ConsultationService) {
+    this.consTable = consultationService.getConsultation();
+    console.log(this.consTable);
+  }
 
   ngOnInit() {
+
   }
 
 }

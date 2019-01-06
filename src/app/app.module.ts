@@ -27,6 +27,11 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { MatButtonModule, MatTooltipModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+
 
 @NgModule({
   imports: [
@@ -36,8 +41,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ComponentsModule,
     MatButtonModule,
     MatTooltipModule,
-    RouterModule,
     AppRoutingModule,
+
+    RouterModule,
     NgbModule,
 
     AgmCoreModule.forRoot({
@@ -47,10 +53,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+    SignupComponent,
 
 
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

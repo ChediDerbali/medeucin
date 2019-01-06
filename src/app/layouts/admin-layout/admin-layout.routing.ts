@@ -9,6 +9,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { PatientComponent } from 'app/patient/patient.component';
 import { MedecinComponent } from '../../medecin/medecin.component';
+import { ConsultationComponent } from '../../consultation/consultation.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -53,7 +54,7 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'consultations',      component: ConsultationComponent },
     { path: 'medecinProfile',   component: MedecinComponent },
     { path: 'patients',     component: PatientComponent },
     { path: 'typography',     component: TypographyComponent },

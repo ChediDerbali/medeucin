@@ -1,3 +1,71 @@
-<p>
-  consultation works!
-</p>
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+              <div class="card-header card-header-tabs card-header-primary">
+                  <div class="nav-tabs-navigation">
+                      <div class="nav-tabs-wrapper">
+                          <span class="nav-tabs-title">Tasks:</span>
+                          <ul class="nav nav-tabs" data-tabs="tabs">
+                              <li class="nav-item active">
+                                  <a href="#profile" class="nav-link" data-toggle="tab">
+                                      <i class="material-icons">bug_report</i> First
+                                      <div class="ripple-container"></div>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      ID
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                    <th>
+                      Patient ID
+                    </th>
+                    <th>
+                      Notes
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let p of consTable">
+                      <td>
+                        {{p.id}}
+                      </td>
+                      <td>
+                        {{p.date}}
+                      </td>
+                      <td>
+                        {{p.patientID}}
+                      </td>
+                      <td>
+                        {{p.notes}}
+                      </td>
+                      <td class="td-actions">
+                        <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'"
+                          class="btn btn-success btn-link btn-sm btn-just-icon">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button (click)="consultationService.deleteConsultationtById(p.id)" mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                          <i class="material-icons">delete</i>
+                        </button>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

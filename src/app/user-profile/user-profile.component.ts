@@ -13,17 +13,17 @@ export class UserProfileComponent implements OnInit {
   Agenda = [];
   modalRef: NgbModalRef;
   message = '';
-  constructor(public medecinService: MedecinService,private modalService:NgbModal) {
+  constructor(public medecinService: MedecinService, private modalService: NgbModal) {
     this.profilMedecin = medecinService.getInfo();
     this.Agenda = medecinService.getAgenda();
 
   }
   ngOnInit() {
   }
-  open(content){
-   this.modalRef =  this.modalService.open(content, {centered: true, size:'lg'});
+  open(content) {
+    this.modalRef = this.modalService.open(content, { centered: true, size: 'lg' });
   }
-  close(){
+  close() {
     this.modalRef.close('');
   }
 }
