@@ -38,4 +38,7 @@ export class MedecinService {
     this.recl = { date: null, message: '' };
   }
 
+  setProfil(med: Medecin) {
+    this.profilMedecin = med;
+  }
 }
