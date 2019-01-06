@@ -26,6 +26,7 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatButtonModule, MatTooltipModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTooltipModule,
     RouterModule,
     AppRoutingModule,
+    NgbModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'

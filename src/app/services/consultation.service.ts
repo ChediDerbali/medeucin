@@ -21,4 +21,12 @@ export class ConsultationService {
     this.consultation.notes = cons.notes;
   }
   constructor() { }
+  deleteConsultationtById(id) {
+    for (let i = 0; i < this.cosultationTable.length; ++i) {
+      if (this.cosultationTable[i].id === id) {
+        this.cosultationTable.splice(i, 1);
+
+      }
+    }
+  }
 }
