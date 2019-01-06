@@ -5,7 +5,7 @@
           <div class="card">
             <div class="card-header card-header-danger">
               <h4 class="card-title ">Patients</h4>
-              <button matTooltip="ajouter patient" [matTooltipPosition]="'above'" style="position: absolute; top: 10px; right: 10px;bottom: 10px;"><i class="material-icons" >note_add</i></button>
+              <button (click)="openNew(contentNew)" matTooltip="ajouter patient" [matTooltipPosition]="'above'" style="position: absolute; top: 10px; right: 10px;bottom: 10px;"><i class="material-icons" >note_add</i></button>
 
 
             </div>
@@ -132,8 +132,70 @@
                   </mat-form-field>
                 </div>
               </div>
-  
               <button mat-raised-button (click)="validate(modindex)" type="button" class="btn btn-danger pull-right">appliquer</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </ng-template>
+  <ng-template #contentNew let-modal>
+    <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Modifier Patient</h4>
+            <p class="card-category">Completer profile patient</p>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="patientAdd.prenom" placeholder="Prenom" name="prenom" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="patientAdd.nom" placeholder="Nom" name="nom" type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="patientAdd.datenaissance" placeholder="date de naissance" name="datenaissance"
+                      type="date">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="patientAdd.tel" placeholder="tel" name="tel" type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="patientAdd.email" placeholder="mail" name="mail" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="patientAdd.CNAM" placeholder="numero CNAM" name="numero CNAM" type="text">
+                    <!--GEN/SPE-->
+                  </mat-form-field>
+                </div>
+              </div>
+  
+              <button mat-raised-button (click)="addPatient()" type="button" class="btn btn-danger pull-right">ajouter</button>
               <div class="clearfix"></div>
             </form>
           </div>

@@ -23,8 +23,9 @@ export class PatientService {
     this.patient.id = p.id;
     this.patient.nom = p.nom;
     this.patient.prenom = p.prenom;
-    this.patient.datenaissance = p.date;
+    this.patient.datenaissance = p.datenaissance;
     this.patient.tel = p.tel;
+    this.patient.email = p.email;
     this.patient.CNAM = p.CNAM;
     this.patients.push(this.patient)
     this.patient = { id: null, nom: '', prenom: '', datenaissance: null, tel: null, email: '', CNAM: null };

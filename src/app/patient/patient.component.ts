@@ -13,6 +13,7 @@ export class PatientComponent implements OnInit {
   table = [];
   profilePatient: Patient;
   patientMod = new Patient();
+  patientAdd = new Patient();
   modalRef : NgbModalRef;
   modindex: number;
   constructor(public patientService: PatientService, private modalService: NgbModal ) {
@@ -26,6 +27,9 @@ export class PatientComponent implements OnInit {
     this.modindex=i;
     console.log(i);
   }
+  openNew(contentNew){
+    this.modalRef = this.modalService.open(contentNew, { centered: true, size: 'lg' });
+  }
   close() {
     this.modalRef.close('');
   }
@@ -36,4 +40,14 @@ export class PatientComponent implements OnInit {
     this.patientMod = new Patient();
     this.close();
   }
+  addPatient(){
+    this.patientService.addPatient(this.patientAdd);
+    console.log(this.patientAdd);
+    this.patientAdd= new Patient();
+    //this.table = this.patientService.getPatient();
+    this.close();
+    
+
+  }
+
 }
