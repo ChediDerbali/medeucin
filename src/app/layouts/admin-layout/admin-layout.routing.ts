@@ -8,6 +8,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { PatientComponent } from 'app/patient/patient.component';
+import { MedecinComponent } from '../../medecin/medecin.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -53,7 +54,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'medecinProfile',   component: MedecinComponent },
     { path: 'patients',     component: PatientComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },

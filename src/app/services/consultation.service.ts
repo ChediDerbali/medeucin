@@ -11,6 +11,7 @@ export class ConsultationService {
     { id: 4, date: new Date, patientID: 4, notes: "baba sem7" },
   ];
   consultation = { id: null, date: null, patientID: null, notes: "" };
+
   getConsultation() {
     return this.cosultationTable;
   }

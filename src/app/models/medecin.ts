@@ -3,7 +3,7 @@ export class Medecin {
   prenom: string;
   datenaissance: Date;
   email: string;
-  publicCode: string;
+  publicCode: number;
   type: string;
   specialite: string;
 }
