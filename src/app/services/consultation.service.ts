@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Patient } from 'app/models/patient';
+import { Consultation } from 'app/models/consultation';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,8 @@ export class ConsultationService {
 
       }
     }
+  }
+  setConsultation(consultation: Consultation, i) {
+    this.cosultationTable[i] = consultation;
   }
 }
