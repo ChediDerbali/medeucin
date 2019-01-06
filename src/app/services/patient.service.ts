@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Patient } from 'app/models/patient';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class PatientService {
     { id: 5, nom: 'moez5', prenom: 'zouari5', datenaissance: new Date, tel: 555555, email: 'mo@5.com', CNAM: 555 },
   ];
   patient = { id: null, nom: '', prenom: '', datenaissance: null, tel: null, email: '', CNAM: null };
-
+  profilPatient: Patient;
   getPatient() {
     return this.patients;
   }
@@ -43,5 +44,8 @@ export class PatientService {
 
       }
     }
+  }
+  setPatient(patient: Patient, i) {
+    this.patients[i] = patient;
   }
 }
