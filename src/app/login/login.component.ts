@@ -11,7 +11,7 @@ import { AuthenticationService } from 'app/services/authentication-service';
 export class LoginComponent implements OnInit {
   model: User = new User()
   loading = false;
-  invalidCredantials =false;
+  invalidCredantials = false;
 
 
   constructor(private router: Router,
@@ -22,16 +22,16 @@ export class LoginComponent implements OnInit {
   login() {
     this.loading = true;
     this.authenticationService.login(this.model.email, this.model.password)
-        .subscribe(
-            data => {
-              this.invalidCredantials = false;
+      .subscribe(
+        data => {
+          this.invalidCredantials = false;
 
-                this.router.navigate(['/medecinProfile']);
-            },
-            error => {
-                console.log(error)
-                this.invalidCredantials = true;
-                this.loading = false;
-            });
-}
+          this.router.navigate(['/medecinProfile']);
+        },
+        error => {
+          console.log(error)
+          this.invalidCredantials = true;
+          this.loading = false;
+        });
+  }
 }
