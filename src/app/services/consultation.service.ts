@@ -22,6 +22,8 @@ export class ConsultationService {
     this.consultation.date = cons.date;
     this.consultation.patientID = cons.patientID;
     this.consultation.notes = cons.notes;
+    this.cosultationTable.push(this.consultation)
+    this.consultation = { id: null, date: null, patientID: null,notes:'' };
   }
   constructor() { }
   deleteConsultationtById(id) {
