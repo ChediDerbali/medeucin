@@ -9,18 +9,18 @@ import { HttpUtilsService } from './http-utils.service';
 export class UserService {
 
   constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {
-   }
+  }
 
   getAll() {
-    return this.http.get<User[]>('/api/users');
+    return this.http.get<User[]>('/api/users', this.httpUtils.getHTTPHeaderWithAuth());
   }
 
   getById(id: number) {
-    return this.http.get('/api/users/' + id);
+    return this.http.get('/api/users/' + id, this.httpUtils.getHTTPHeaderWithAuth());
   }
 
   delete(id: number) {
-    return this.http.delete('/api/users/' + id);
+    return this.http.delete('/api/users/' + id,this.httpUtils.getHTTPHeaderWithAuth());
   }
   create(nom, prenom, email, password, type) {
     return this.http.post('/api/auth/signup', { nom: nom, prenom: prenom, email: email, password: password, type: type });

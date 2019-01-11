@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient } from 'app/models/patient';
+import { HttpUtilsService } from './http-utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class PatientService {
   patient = { id: null, nom: '', prenom: '', datenaissance: null, tel: null, email: '', CNAM: null };
   profilPatient: Patient;
   getPatient() {
-    return this.http.get<Patient[]>('/api/patients');
+    return this.http.get<Patient[]>('/patients', this.httpUtils.getHTTPHeaderWithAuth());
   }
   /** */
   addPatient(p) {
@@ -32,11 +33,12 @@ export class PatientService {
 
 
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {
 
+  }
 
   getPatientById(id: string) {
-    return this.http.get('')
+    return this.http.get('/patients', this.httpUtils.getHTTPHeaderWithAuth())
   }
   deletePatientById(id) {
     for (let i = 0; i < this.patients.length; ++i) {
