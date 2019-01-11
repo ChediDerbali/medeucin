@@ -16,7 +16,7 @@ export class PatientService {
   patient = { id: null, nom: '', prenom: '', datenaissance: null, tel: null, email: '', CNAM: null };
   profilPatient: Patient;
   getPatient() {
-    return this.patients;
+    return this.http.get<Patient[]>('/api/patients');
   }
   /** */
   addPatient(p) {

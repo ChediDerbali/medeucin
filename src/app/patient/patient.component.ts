@@ -10,43 +10,45 @@ import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PatientComponent implements OnInit {
 
-  table = [];
+  table: any;
   profilePatient: Patient;
   patientMod = new Patient();
   patientAdd = new Patient();
-  modalRef : NgbModalRef;
+  modalRef: NgbModalRef;
   modindex: number;
-  constructor(public patientService: PatientService, private modalService: NgbModal ) {
-    this.table = patientService.getPatient();
+  constructor(public patientService: PatientService, private modalService: NgbModal) {
   }
 
-  ngOnInit() {
-  }
-  open(content,i) {
+  ngOnInit() {this.patientService.getPatient()
+    .subscribe( data => {
+      this.table = data;
+    });
+};
+  open(content, i) {
     this.modalRef = this.modalService.open(content, { centered: true, size: 'lg' });
-    this.modindex=i;
+    this.modindex = i;
     console.log(i);
   }
-  openNew(contentNew){
+  openNew(contentNew) {
     this.modalRef = this.modalService.open(contentNew, { centered: true, size: 'lg' });
   }
   close() {
     this.modalRef.close('');
   }
   validate(i) {
-    this.patientService.setPatient(this.patientMod,i);
+    this.patientService.setPatient(this.patientMod, i);
     console.log(this.patientMod);
     this.table = this.patientService.getPatient();
     this.patientMod = new Patient();
     this.close();
   }
-  addPatient(){
+  addPatient() {
     this.patientService.addPatient(this.patientAdd);
     console.log(this.patientAdd);
-    this.patientAdd= new Patient();
+    this.patientAdd = new Patient();
     //this.table = this.patientService.getPatient();
     this.close();
-    
+
 
   }
 

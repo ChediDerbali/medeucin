@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'app/services/user.service';
 import { User } from '../models/user';
+import { AlertService } from '../services/alert.service';
 
 
 @Component({
@@ -10,24 +11,25 @@ import { User } from '../models/user';
 })
 
 export class SignupComponent {
-  model: User = new User();
+  model: any = {};
   loading = false;
 
   constructor(
-    private router: Router,
-    private userService: UserService, ) { }
+      private router: Router,
+      private userService: UserService,
+      private alertService: AlertService) { }
 
-  register() {
-    this.loading = true;
-    this.userService.create(this.model.nom, this.model.prenom, this.model.email, this.model.password, this.model.type)
-      .subscribe(
-        data => {
-          // set success message and pass true paramater to persist the message after redirecting to the login page
-          this.router.navigate(['/login']);
-        },
-        error => {
-          console.log(error)
-          this.loading = false;
-        });
-  }
+
+register() {
+  this.loading = true;
+  this.userService.create(this.model.nom, this.model.prenom, this.model.email, this.model.password, this.model.type).subscribe(
+          data => {
+              this.alertService.success('Registration successful', true);
+              this.router.navigate(['/login']);
+          },
+          error => {
+              this.alertService.error(error);
+              this.loading = false;
+          });
+}
 }

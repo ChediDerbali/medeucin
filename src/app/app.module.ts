@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { JwtInterceptor } from '../app/alert/interceptors/jwt.inteceptor';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -25,11 +26,16 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatButtonModule, MatTooltipModule } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AlertComponent } from './alert/alert.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AlertService } from './services/alert.service';
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
 
 
 
@@ -56,10 +62,21 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     AdminLayoutComponent,
     LoginComponent,
     SignupComponent,
+    AlertComponent,
 
 
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy},
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
